@@ -1,0 +1,25 @@
+{
+  "name": "rjs-weather",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "start": "npm run serve | npm run dev",
+  "serve": "./node_modules/.bin/http-server -p 8080",
+  "dev": "webpack-dev-server --progress --colors --port 8090"
+},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcosfdev/RJS-weather.git"
+  },
+  "author": "Marc O'Brien",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^0.14.2"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.13.2",
+    "webpack": "^1.12.3",
+    "webpack-dev-server": "^1.12.1"
+  }
+}

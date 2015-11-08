@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RJS Weather Forecast Demo</title>
+	  <link href="http://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/flatly/bootstrap.min.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="static/css/style.css" />
+
+	<link rel="shortcut icon" href="#" />	
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta property="og:title" content="Weather Forecast">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="#">
+	<meta property="og:image" content="#">
+	<meta property="og:site_name" content="Weather Forecast">
+	<meta property="og:description" content="Weather forecast">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=visualization"></script>
+	<script type="text/javascript">
+		// Basic call to Google Maps API to intialize map canvas
+		function initialize() {
+		    geocoder = new google.maps.Geocoder();
+		    var mapOptions = {
+		        center: new google.maps.LatLng(37.78, -122.41),
+		        zoom: 11,
+		        mapTypeId: google.maps.MapTypeId.SATELLITE
+		    };
+		    map = new google.maps.Map(document.getElementById('map-view'),
+		    mapOptions);
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);	
+	</script>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.0/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js"></script>
+    <script type="text/jsx;harmony=true" src="static/js/weather.js"></script>
+</head>
+
+<body onload="initialize();">
+<div class="container-fluid">
+
+<div class="container">
+  <div class="row transparent">
+ 
+    <div class="col-md-12">
+        <div class="tuyin first"> 
+      <span class="title">What's the Weather?</span>
+       <div class="plan-name">Enter your City</div>
+
+<!--Search Section -->
+		<div class="spacer col-md-1"></div>
+<br/>
+ <form id="search-form" onsubmit="return geocodeQuery()">
+	<input id="search-query" class="search-input-a" type="text" name="Search Term">
+	<input id="search-form-submit" type="button" class="btn-scary" value="SEARCH" onclick="geocodeQuery()"> <span class="icon"><i class="fa fa-search"></i></span></input>
+	</form>
+<div class="spacer col-md-1"></div>
+<br/>
+<!-- Google Map View -->
+				<div id="map-view"></div>
+			</div>
+
+</div>
+</div>
+</div>
+      </div>
+
+		<div class="col-lg-3 col-md-3 col-sm-3 spacer"></div>
+	</div>
+	</div>
+<!-- API Forecast Sections -->
+	<div class="row container-fluid">
+		<h3 id="forecast-location"></h3>
+	</div>
+<!-- Aeris Weather Data via API -->
+	<div class="row container-fluid" id="aeris">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div id="aeris-content"></div>
+		</div>
+	</div>
+<!-- Forecast IO Weather Data via API -->
+	<div class="row container-fluid" id="forecast-io">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div id="fio-content"></div>
+		</div>
+	</div>
+<!-- OpenWeatherMap Forecast Data via API -->
+	<div class="row container-fluid forecast-grid" id="owm">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div id="owm-content"></div>
+		</div>
+	</div>	
+
+<!-- National Weather Service Forecast Data via API -->
+	<div class="row container-fluid forecast-grid" id="nws">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+			<div id="nws-content"></div>
+		</div>
+	</div>	
+
+
+</div>
+</body>
+
+</html>
+
