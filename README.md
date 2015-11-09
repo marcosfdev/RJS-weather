@@ -9,7 +9,7 @@ A searchable Weather App using weather data from Aeris, Forecast.io and OpenWeat
 Marc O'Brien
 
 ## Build
-
+- Load dependancies 'npm install'
 - Serve it locally `npm start`
 - Go to `http://localhost:8090`
 
